@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router,Route, Switch} from "react-router-dom";
+import NavBar from './Components/NavBar';
+import Error from "./Components/Error";
+import Anime from "./Components/Anime";
+import Detalle from "./Components/Detalle"
+
 
 function App() {
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+    <NavBar/>
+    <Switch>
+      <Route exact path="/">Home 123</Route>
+      <Route exact path="/anime"><Anime /></Route>
+      <Route exact path="/anime/:id"><Detalle /></Route>
+      <Route exact path="/manga">Routersss12234</Route>
+      <Route><Error /></Route>
+    </Switch >
+  </Router>
+  ) 
 }
 
 export default App;
